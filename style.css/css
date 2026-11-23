@@ -1,0 +1,110 @@
+:root {
+  --ku-navy: #0b2c59;
+  --ku-navy-dark: #071e3d;
+  --ku-light-bg: #f4f7fb;
+  --ku-card-bg: #ffffff;
+  --ku-border: #dce4ef;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--ku-light-bg);
+  color: #1e293b;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Navbar */
+.navbar-ku {
+  background-color: var(--ku-navy);
+}
+
+.navbar-ku .navbar-brand,
+.navbar-ku .nav-link {
+  color: #ffffff;
+}
+
+.navbar-ku .nav-link:hover,
+.navbar-ku .nav-link.active {
+  color: #cfe2ff;
+  font-weight: 600;
+}
+
+/* Hero Section */
+.hero-box {
+  background-color: var(--ku-card-bg);
+  border: 1px solid var(--ku-border);
+  border-radius: 12px;
+  padding: 2.5rem;
+}
+
+.hero-title {
+  color: var(--ku-navy);
+  font-weight: 700;
+}
+
+/* Buttons */
+.btn-ku {
+  background-color: var(--ku-navy);
+  color: #ffffff;
+  border: 1px solid var(--ku-navy);
+}
+
+.btn-ku:hover {
+  background-color: var(--ku-navy-dark);
+  color: #ffffff;
+}
+
+.btn-ku-outline {
+  background-color: #ffffff;
+  color: var(--ku-navy);
+  border: 1px solid var(--ku-navy);
+}
+
+.btn-ku-outline:hover {
+  background-color: var(--ku-navy);
+  color: #ffffff;
+}
+
+/* Cards */
+.ku-card {
+  background-color: var(--ku-card-bg);
+  border: 1px solid var(--ku-border);
+  border-radius: 10px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ku-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(11, 44, 89, 0.08);
+}
+
+.card-placeholder {
+  background-color: #e9eff7;
+  color: #64748b;
+  height: 160px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+  background-color: #ffffff;
+  border-top: 1px solid var(--ku-border);
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 576px) {
+  .hero-box {
+    padding: 1.5rem;
+  }
+}

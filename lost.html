@@ -10,7 +10,7 @@
 <body>
 
   <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-ku">
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-ku" aria-label="Main navigation">
     <div class="container">
       <a class="navbar-brand fw-bold" href="index.html">KU | Campus Lost &amp; Found</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +19,7 @@
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav ms-auto gap-lg-2">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" href="lost.html">Lost Items</a></li>
+          <li class="nav-item"><a class="nav-link active" href="lost.html" aria-current="page">Lost Items</a></li>
           <li class="nav-item"><a class="nav-link" href="found.html">Found Items</a></li>
           <li class="nav-item"><a class="nav-link" href="report.html">Report an Item</a></li>
         </ul>
@@ -28,49 +28,82 @@
   </nav>
 
   <!-- Main Content -->
-  <main class="container my-5">
+  <main class="container my-4 my-md-5">
     <div class="mb-4">
-      <h1 class="h2 fw-bold" style="color: var(--ku-navy);">Lost Items</h1>
-      <p class="text-secondary mb-0">Browse sample reports and narrow results using the tools below.</p>
+      <h1 class="h2 fw-bold ku-heading">Lost Items</h1>
+      <p class="text-secondary mb-0">Browse sample reports.</p>
     </div>
 
     <!-- Search and Filter Controls -->
     <div class="row g-3 mb-4 align-items-center">
-      <div class="col-md-6">
+      <div class="col-md-5 col-lg-6">
         <label for="searchInput" class="form-label visually-hidden">Search by item name or location</label>
-        <input type="text" id="searchInput" class="form-control" placeholder="Search by item name or location...">
+        <input type="search" id="searchInput" class="form-control" placeholder="Search by item name or location..." disabled>
       </div>
       <div class="col-md-4">
         <label for="categoryFilter" class="form-label visually-hidden">Filter by category</label>
-        <select id="categoryFilter" class="form-select">
+        <select id="categoryFilter" class="form-select" disabled>
           <option value="all" selected>All categories</option>
           <option value="Wallet">Wallet</option>
           <option value="ID Card">ID Card</option>
           <option value="Electronics">Electronics</option>
-          <option value="Keys">Keys</option>
+          <option value="Keychain">Keychain</option>
           <option value="Books">Books</option>
           <option value="Other">Other</option>
         </select>
       </div>
-      <div class="col-md-2 d-grid">
-        <button type="button" id="clearFiltersBtn" class="btn btn-ku-outline">Clear Filters</button>
+      <div class="col-md-3 col-lg-2 d-grid">
+        <button type="button" id="clearFiltersBtn" class="btn btn-ku-outline" disabled>Clear Filters</button>
       </div>
     </div>
 
-    <!-- Empty State / Status Message -->
-    <div id="emptyMessage" class="alert alert-secondary d-none" role="alert">
-      No lost items match your current search or category filter.
-    </div>
 
     <!-- Cards Grid (3 cols desktop, 2 cols tablet, 1 col mobile) -->
-    <div id="itemsContainer" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"></div>
+    <div id="itemsContainer" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <article class="col">
+        <div class="ku-card p-3 h-100 d-flex flex-column">
+          <img src="images/black-wallet.jpg" alt="Black leather wallet with light stitching" class="item-photo mb-3">
+          <h2 class="h5 fw-bold mb-2 ku-heading">Black Wallet</h2>
+          <p class="mb-1 text-secondary small"><strong>Category:</strong> Wallet</p>
+          <p class="mb-1 text-secondary small"><strong>Location:</strong> Library</p>
+          <p class="mb-3 text-secondary small"><strong>Date:</strong> <time datetime="2026-10-14">Oct 14, 2026</time></p>
+          <div class="mt-auto">
+            <a href="item-details.html#black-wallet" class="btn btn-ku-outline" aria-label="View details for Black Wallet">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="col">
+        <div class="ku-card p-3 h-100 d-flex flex-column">
+          <img src="images/student-id.jpg" alt="White and yellow Kuwait University student ID card" class="item-photo mb-3">
+          <h2 class="h5 fw-bold mb-2 ku-heading">Student ID</h2>
+          <p class="mb-1 text-secondary small"><strong>Category:</strong> ID Card</p>
+          <p class="mb-1 text-secondary small"><strong>Location:</strong> CBA Floor 2</p>
+          <p class="mb-3 text-secondary small"><strong>Date:</strong> <time datetime="2026-10-20">Oct 20, 2026</time></p>
+          <div class="mt-auto">
+            <a href="item-details.html#student-id" class="btn btn-ku-outline" aria-label="View details for Student ID">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="col">
+        <div class="ku-card p-3 h-100 d-flex flex-column">
+          <img src="images/laptop-charger.jpg" alt="Black Lenovo laptop charger with its cable" class="item-photo mb-3">
+          <h2 class="h5 fw-bold mb-2 ku-heading">Laptop Charger</h2>
+          <p class="mb-1 text-secondary small"><strong>Category:</strong> Electronics</p>
+          <p class="mb-1 text-secondary small"><strong>Location:</strong> Cafeteria</p>
+          <p class="mb-3 text-secondary small"><strong>Date:</strong> <time datetime="2026-10-22">Oct 22, 2026</time></p>
+          <div class="mt-auto">
+            <a href="item-details.html#laptop-charger" class="btn btn-ku-outline" aria-label="View details for Laptop Charger">View Details</a>
+          </div>
+        </div>
+      </article>
+    </div>
   </main>
 
   <!-- Footer -->
   <footer class="py-3 mt-auto">
-    <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+    <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 text-center text-sm-start">
       <span>Campus Lost &amp; Found KU — Kuwait University</span>
-      <div class="d-flex gap-3">
+      <div class="d-flex flex-wrap justify-content-center gap-3">
         <a href="index.html" class="text-decoration-none text-secondary">Home</a>
         <a href="lost.html" class="text-decoration-none text-secondary">Lost</a>
         <a href="found.html" class="text-decoration-none text-secondary">Found</a>

@@ -10,7 +10,7 @@
 <body>
 
   <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-ku">
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-ku" aria-label="Main navigation">
     <div class="container">
       <a class="navbar-brand fw-bold" href="index.html">KU | Campus Lost &amp; Found</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,31 +21,31 @@
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="lost.html">Lost Items</a></li>
           <li class="nav-item"><a class="nav-link" href="found.html">Found Items</a></li>
-          <li class="nav-item"><a class="nav-link active" href="report.html">Report an Item</a></li>
+          <li class="nav-item"><a class="nav-link active" href="report.html" aria-current="page">Report an Item</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- Main Content -->
-  <main class="container my-5">
+  <main class="container my-4 my-md-5">
     <div class="mb-4">
-      <h1 class="h2 fw-bold" style="color: var(--ku-navy);">Report an Item</h1>
+      <h1 class="h2 fw-bold ku-heading">Report an Item</h1>
       <p class="text-secondary mb-0">Enter details about an item you lost or found on campus.</p>
     </div>
 
-    <!-- Feedback Message Box -->
-    <div id="formFeedback" class="alert d-none mb-4" role="alert"></div>
+
 
     <!-- Report Form -->
-    <div class="ku-card p-4">
-      <form id="reportForm" novalidate>
+    <div class="ku-card p-3 p-sm-4">
+      <form id="reportForm">
+        <p class="text-secondary mb-3">Fields marked with * are required.</p>
         <!-- Report Type -->
-        <div class="mb-3">
-          <label class="form-label fw-semibold">Report type *</label>
-          <div class="d-flex gap-3">
+        <fieldset class="mb-3">
+          <legend class="form-label fs-6 fw-semibold">Report type *</legend>
+          <div class="d-flex flex-wrap gap-3">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="reportType" id="typeLost" value="lost" checked>
+              <input class="form-check-input" type="radio" name="reportType" id="typeLost" value="lost" checked required>
               <label class="form-check-label" for="typeLost">Lost</label>
             </div>
             <div class="form-check">
@@ -53,24 +53,24 @@
               <label class="form-check-label" for="typeFound">Found</label>
             </div>
           </div>
-        </div>
+        </fieldset>
 
         <div class="row g-3">
           <!-- Item Name -->
           <div class="col-md-6">
             <label for="itemName" class="form-label fw-semibold">Item name *</label>
-            <input type="text" id="itemName" class="form-control" placeholder="e.g., Black Wallet" required>
+            <input type="text" id="itemName" name="itemName" class="form-control" placeholder="e.g., Black Wallet" required>
           </div>
 
           <!-- Category -->
           <div class="col-md-6">
             <label for="itemCategory" class="form-label fw-semibold">Category *</label>
-            <select id="itemCategory" class="form-select" required>
+            <select id="itemCategory" name="itemCategory" class="form-select" required>
               <option value="" selected disabled>Select a category</option>
               <option value="Wallet">Wallet</option>
               <option value="ID Card">ID Card</option>
               <option value="Electronics">Electronics</option>
-              <option value="Keys">Keys</option>
+              <option value="Keychain">Keychain</option>
               <option value="Books">Books</option>
               <option value="Other">Other</option>
             </select>
@@ -79,24 +79,24 @@
           <!-- Location -->
           <div class="col-md-6">
             <label for="itemLocation" class="form-label fw-semibold">Location *</label>
-            <input type="text" id="itemLocation" class="form-control" placeholder="e.g., Library or Building C" required>
+            <input type="text" id="itemLocation" name="itemLocation" class="form-control" placeholder="e.g., Library or Building C" required>
           </div>
 
           <!-- Date -->
           <div class="col-md-6">
             <label for="itemDate" class="form-label fw-semibold">Date *</label>
-            <input type="date" id="itemDate" class="form-control" required>
+            <input type="date" id="itemDate" name="itemDate" class="form-control" required>
           </div>
 
           <!-- Description -->
           <div class="col-12">
             <label for="itemDescription" class="form-label fw-semibold">Description *</label>
-            <textarea id="itemDescription" class="form-control" rows="4" placeholder="Add helpful details such as color, brand, or where it was lost or found..." required></textarea>
+            <textarea id="itemDescription" name="itemDescription" class="form-control" rows="4" placeholder="Add helpful details such as color, brand, or where it was lost or found..." required></textarea>
           </div>
         </div>
 
-        <div class="mt-4 d-flex justify-content-end">
-          <button type="submit" class="btn btn-ku px-4 py-2">Submit Report</button>
+        <div class="mt-4 d-grid d-sm-flex justify-content-sm-end">
+          <button type="submit" class="btn btn-ku px-4 py-2" disabled>Submit Report</button>
         </div>
       </form>
     </div>
@@ -104,9 +104,9 @@
 
   <!-- Footer -->
   <footer class="py-3 mt-auto">
-    <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+    <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 text-center text-sm-start">
       <span>Campus Lost &amp; Found KU — Kuwait University</span>
-      <div class="d-flex gap-3">
+      <div class="d-flex flex-wrap justify-content-center gap-3">
         <a href="index.html" class="text-decoration-none text-secondary">Home</a>
         <a href="lost.html" class="text-decoration-none text-secondary">Lost</a>
         <a href="found.html" class="text-decoration-none text-secondary">Found</a>
@@ -116,7 +116,5 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
 </body>
 </html>
